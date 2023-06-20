@@ -4,18 +4,12 @@ import Hero from "./components/Hero"
 import Card from "./components/Card";
 import data from "./data"
 
-// import img1 from "../src/assets/images/katie-zaferes.png"
-
 function App() {
   const cards = data.map(item => {
     return (
       <Card
-        img={item.coverImg}
-        rating={item.stats.rating}
-        reviewCount={item.stats.reviewCount}
-        country={item.location}
-        title={item.title}
-        price={item.price}
+        key={item.id}
+        item={item}
       />
     )
   })
@@ -23,7 +17,9 @@ function App() {
     <>
       <Navbar/>
       <Hero/>
-      {cards}
+      <section className="cards-list">
+          {cards}
+      </section>
     </>
   )
 }
